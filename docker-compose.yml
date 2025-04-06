@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: psum
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: test
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: postgresql://psum:1234@db:5432/test
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/app
+    command: sh -c "npx prisma migrate deploy && npm start"
+    ports:
+      - "3000:3000"
+
+volumes:
+  pg_data:
