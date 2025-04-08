@@ -5,7 +5,7 @@ import './App.css';
 export const AppContext = createContext();
 
 function App() {
-  const [test, setTest] = useState[false]
+  const [test, setTest] = useState(false)
 
   return (
   <>

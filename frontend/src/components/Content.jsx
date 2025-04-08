@@ -1,4 +1,5 @@
 import { useContext, useEffect } from "react";
+import { AppContext } from "../App";
 import axios from 'axios'
 
 export default function Content() {
@@ -6,7 +7,7 @@ export default function Content() {
 
   return (
     <>
-      <div>Hello</div>
+      <div>nice</div>
     </>
   );
 }

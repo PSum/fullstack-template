@@ -32,7 +32,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "5173:3000"  # dev server läuft auf 3000
+      - "5173:5173"  # dev server läuft auf 3000
     volumes:
       - ./frontend:/app
       - /app/node_modules
