@@ -27,5 +27,17 @@ services:
     ports:
       - "3000:3000"
 
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:3000"  # dev server läuft auf 3000
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    restart: always
+
 volumes:
   pg_data:
+
