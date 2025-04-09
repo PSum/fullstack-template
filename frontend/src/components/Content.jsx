@@ -7,7 +7,7 @@ export default function Content() {
 
   return (
     <>
-      <div>nice</div>
+      <div className="">I did a thing</div>
     </>
   );
 }
