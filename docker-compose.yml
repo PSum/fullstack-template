@@ -22,7 +22,8 @@ services:
     depends_on:
       - db
     volumes:
-      - ./backend:/app
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
     command: sh -c "npx prisma migrate deploy && npm start"
     ports:
       - "3000:3000"
